@@ -1,6 +1,6 @@
 {
   "name": "yv-vue-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Vue组件库",
   "main": "./dist/yv-vue-components.js",
   "scripts": {
@@ -8,8 +8,16 @@
     "dev": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fenghuijiuzhuan/yv-vue-components.git"
+  },
   "author": "yvangod",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fenghuijiuzhuan/yv-vue-components/issues"
+  },
+  "homepage": "https://github.com/fenghuijiuzhuan/yv-vue-components#readme",
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/plugin-transform-runtime": "^7.16.4",

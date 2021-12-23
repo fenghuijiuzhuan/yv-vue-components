@@ -1,10 +1,11 @@
 <!--
- * @path        : \sljdxt_web\src\components\ScrollButtonGroup\index.vue
+ * @path        : \yv-vue-components\lib\ScrollTabs.vue
  * @message     : 滚动按钮组
  * @Author      : yvangod
 -->
 <template>
   <div class="g_scroll-button-group-wrap"
+    :class="block&&'g_scroll-button-group-blockskin'"
     @selectstart.prevent
     @select.prevent
   >
@@ -54,12 +55,14 @@ export default {
     activeButton: {
       type: Number,
       default: 0
-    }
+    },
+    block: Boolean
   },
   data() {
     return {
       current: this.activeButton,
-      currentStyle: {}
+      currentStyle: {},
+      animationId: null
     }
   },
   watch: {
@@ -75,6 +78,7 @@ export default {
   },
   mounted() {
     this.value.length && this.getBlockStyle(this.current)
+    this.$emit('onMounted')
   },
   methods: {
     getBlockStyle(nVal) {
@@ -97,7 +101,10 @@ export default {
       let distance
       distance = Math.min(scrollWidth - wrapWidth, diff)
       distance = Math.max(0, distance)
-      this.scrollToAnimate(distance)
+      if (this.animationId) {
+        window.cancelAnimationFrame(this.animationId)
+      }
+      this.animationId = this.scrollToAnimate(distance)
     },
     scrollToAnimate(distance) {
       const scrollLeft = this.$el.scrollLeft
@@ -109,10 +116,12 @@ export default {
         step = Math.floor(step)
       }
       if (Math.abs(diff) < 2) {
-        return this.$el.scrollTo(distance, 0)
+        this.$el.scrollTo(distance, 0)
+        window.cancelAnimationFrame(this.animationId)
+      } else {
+        this.$el.scrollTo(scrollLeft + step, 0)
+        this.animationId = window.requestAnimationFrame(this.scrollToAnimate.bind(this, distance))
       }
-      this.$el.scrollTo(scrollLeft + step, 0)
-      window.requestAnimationFrame(this.scrollToAnimate.bind(this, distance))
     },
     clickItem(index, row) {
       this.$nextTick(() => {
@@ -181,6 +190,53 @@ export default {
   .g_active-button{
     color: #FDFDFF;
     cursor: default;
+  }
+}
+.g_scroll-button-group-blockskin{
+  *{
+    box-sizing: border-box;
+  }
+  background-color: transparent;
+  height: 30px;
+  border-radius: 0;
+  .g_scroll-button-group{
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #EEEEEE;
+  }
+  .g_buttons{
+    background-color: transparent;
+    margin: 0;
+    line-height: 28px;
+    color: #666;
+    border-radius: 0;
+    border-right: 1px solid #EEEEEE;
+    &:last-child{
+      border-right: none;
+    }
+  }
+  .g_active-button{
+    border-right-color: transparent;
+  }
+  .g_sp-block{
+    height: 100%;
+    border: 1px solid #3A81FF;
+    border-radius: 0;
+    background: unset;
+    top: 0;
+    &:after{
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-top: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 6px solid #3A81FF;
+    }
   }
 }
 </style>
