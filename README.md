@@ -4,66 +4,64 @@
  * @Author      : yvangod
 -->
 <!-- 标题 -->
-# 一个vue组件库
+## yv-vue-components组件库
 <!-- 介绍 -->
-组件
-- ScrollTabs 一个具有滑动切换动画的tab切换组件
+平常在vue项目中用到的时候，写的一些组件
 
-## npm安装
+### npm安装
 ```
 npm install yv-vue-components
 ```
-### 模块化导入
+### 全局引用
 ```
-import {
-  ScrollTabs
-} from 'yv-vue-components'
+import YvVueComponents from 'yv-vue-components'
+Vue.use(YvVueComponents)
 ```
-### 在html中的引入
-```
-<script src="/dist/yv-vue-components.js"></script>
-```
-### 使用
-```
-<template>
-  <!-- ...... -->
-    <scroll-tabs
-      ref="ScrollTab"
-      :value="values"
-      :activeButton="1"
-      block
-      @on-mounted="getScrollTabBoxBound"
-      @on-selected="checkTab"
-    />
-  <!-- ...... -->
-</template>
+### 按需引用
 
-<script>
-import {
-  ScrollTabs
-} from 'yv-vue-components'
-export default {
-  components: {
-    ScrollTabs
-  },
-  data() {
-    return {
-      values: [],
-    }
-  },
-  methods: {
-    getScrollTabBoxBound() {
-      var el = this.$refs.scrollButtonGroup.$el;
-      var ww = el.offsetWidth;
-      var cw = el.scrollWidth;
-    },
-    checkTab(index, val) {
-      console.log('当前index and val', index, val)
-    }
-  }
-}
-</script>
+借助 [babel-plugin-component](https://github.com/QingWei-Li/babel-plugin-component)，我们可以只引入需要的组件，以达到减小项目体积的目的。
+
+首先，安装 babel-plugin-component：
+
+```bash
+npm install babel-plugin-component -D
 ```
+
+然后，将 .babelrc 修改为：
+
+```json
+{
+  "presets": [["es2015", { "modules": false }]],
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "yv-vue-components",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
+```
+
+接下来，如果你只希望引入部分组件，比如 ScrollTabs，那么需要在 main.js 中写入以下内容：
+
+```javascript
+import Vue from 'vue';
+import { ScrollTabs } from 'yv-vue-components';
+import App from './App.vue';
+
+Vue.component(ScrollTabs.name, ScrollTabs);
+/* 或写为
+ * Vue.use(ScrollTabs)
+ */
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
+```
+
 ### 示例
 ```
 <!-- 下载项目 -->
@@ -71,22 +69,3 @@ npm install
 <!-- 启动项目查看示例 -->
 npm run dev
 ```
-## 参数
-- value: 传递给组件的数据
-  - type: Array
-  - default: ```[{ name: '按钮一', }, { name: '按钮二', }, { name: '按钮三', }, { name: '按钮四', }, { name: '...', }, { name: '按钮九千九百九十九', }]```
-  - 注意：数据项必传属性name
-- activeButton: 默认激活选中项的index
-  - type: Number
-  - default: 0
-- block: 是否使用方形样式
-  - type: Boolean
-  - ddefault: false
-## 方法
-on-mounted 此方法在组件加载完成后自动执行（会在组件的mounted生命周期中执行）
-- 参数：function(){ ... }
-
-on-selected 此方法是在监听到组件切换时执行
-- 参数：function(index, value){ ... }
-  - index：当前激活的tab按钮的数组下标
-  - value: 当前激活的tab按钮的数据项

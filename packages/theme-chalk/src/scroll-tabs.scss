@@ -1,0 +1,106 @@
+.yv-scroll-button-group-wrap {
+  height: 40px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  background-color: #f5f5f5;
+  border-radius: 20px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .yv-sp-block {
+    height: 32px;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    z-index: 1;
+    border-radius: 15px;
+    background: linear-gradient(-26deg, #3a82ff 0%, #4b86ef 100%);
+    box-shadow: 0px 0px 8px 0px #acc1e5;
+    transition: 225ms linear;
+    display: block;
+  }
+}
+.yv-scroll-button-group {
+  white-space: nowrap;
+  width: max-content;
+  height: 100%;
+  padding: 4px 7px;
+  font-size: 0;
+  .yv-buttons {
+    height: 100%;
+    line-height: 32px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 15px;
+    font-size: 16px;
+    color: #333333;
+    margin-left: 6px;
+    margin-right: 6px;
+    cursor: pointer;
+    transition: 225ms linear;
+
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+  }
+  .yv-buttons:first-child {
+    margin-left: 0;
+  }
+  .yv-buttons:last-child {
+    margin-right: 0;
+  }
+  .yv-active-button {
+    color: #fdfdff;
+    cursor: default;
+  }
+}
+.yv-scroll-button-group-blockskin {
+  * {
+    box-sizing: border-box;
+  }
+  background-color: transparent;
+  height: 30px;
+  border-radius: 0;
+  .yv-scroll-button-group {
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #eeeeee;
+  }
+  .yv-buttons {
+    background-color: transparent;
+    margin: 0;
+    line-height: 28px;
+    color: #666;
+    border-radius: 0;
+    border-right: 1px solid #eeeeee;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  .yv-active-button {
+    border-right-color: transparent;
+  }
+  .yv-sp-block {
+    height: 100%;
+    border: 1px solid #3a81ff;
+    border-radius: 0;
+    background: unset;
+    top: 0;
+    &:after {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-top: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 6px solid #3a81ff;
+    }
+  }
+}

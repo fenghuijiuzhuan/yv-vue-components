@@ -1,3 +1,21 @@
-.vscode/
-node_modules/
-package-lock.json
+
+#设置同步 vscode配置
+# !/.vscode/settings.json
+
+node_modules
+.DS_Store
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+lerna-debug.log
+npm-debug.log.*
+yarn-debug.log.*
+yarn-error.log.*
+lerna-debug.log.*
+lib
+.idea
+.vscode
+.npmrc
+coverage
+waiter.config.js
+.envrc
