@@ -1,3 +1,5 @@
 {
-  "scroll-tabs": "./packages/scroll-tabs/index.js"
+  "scroll-tabs": "./packages/scroll-tabs/index.js",
+  "form-factory": "./packages/form-factory/index.js",
+  "dialog-layout": "./packages/dialog-layout/index.js"
 }

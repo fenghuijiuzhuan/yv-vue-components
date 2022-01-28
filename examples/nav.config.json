@@ -8,6 +8,14 @@
           {
             "path": "/scroll-tabs",
             "title": "滚动按钮组"
+          },
+          {
+            "path": "/form-factory",
+            "title": "表单工厂"
+          },
+          {
+            "path": "/dialog-layout",
+            "title": "弹窗简化模板"
           }
         ]
       }

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="yv-scroll-button-group-wrap"
+    class="yv-scroll-button-group-wrapper"
     :class="block && 'yv-scroll-button-group-blockskin'"
     @selectstart.prevent
     @select.prevent
