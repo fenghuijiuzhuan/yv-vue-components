@@ -13,6 +13,7 @@
     "src",
     "packages"
   ],
+  "unpkg": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
   "repository": {
     "type": "git",

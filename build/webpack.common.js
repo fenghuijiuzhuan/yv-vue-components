@@ -19,9 +19,11 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'yv-vue-components.common.js',
     chunkFilename: '[id].js',
-    libraryExport: 'default',
-    library: 'YVVUECOMPONENTS',
-    libraryTarget: 'commonjs2'
+    library: {
+      name: 'YVVUECOMPONENTS',
+      type: 'commonjs2',
+      export: 'default'
+    }
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

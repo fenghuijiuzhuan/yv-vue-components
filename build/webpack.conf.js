@@ -20,10 +20,12 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'index.js',
     chunkFilename: '[id].js',
-    libraryTarget: 'umd',
-    libraryExport: 'default',
-    library: 'YVVUECOMPONENTS',
-    umdNamedDefine: true,
+    library: {
+      name: 'YVVUECOMPONENTS',
+      type: 'umd',
+      export: 'default',
+      umdNamedDefine: true
+    },
     globalObject: 'typeof self !== \'undefined\' ? self : this'
   },
   resolve: {
