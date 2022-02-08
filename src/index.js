@@ -26,7 +26,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '2.1.0',
+  version: '2.1.1',
   install,
   ScrollTabs,
   FormFactory,

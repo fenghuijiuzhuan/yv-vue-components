@@ -11,8 +11,10 @@
   "files": [
     "lib",
     "src",
-    "packages"
+    "packages",
+    "types"
   ],
+  "typings": "types/index.d.ts",
   "unpkg": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
   "repository": {
