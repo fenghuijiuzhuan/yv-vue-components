@@ -20,7 +20,7 @@ module.exports = {
     filename: 'yv-vue-components.common.js',
     chunkFilename: '[id].js',
     library: {
-      name: 'YVVUECOMPONENTS',
+      // name: 'YVVUECOMPONENTS',
       type: 'commonjs2',
       export: 'default'
     }
