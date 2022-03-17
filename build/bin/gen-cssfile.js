@@ -22,10 +22,10 @@ function fileExists(filePath) {
 
 themes.forEach((theme) => {
   var isSCSS = theme !== 'theme-default';
-  var indexContent = isSCSS ? '@import "./base.scss";\n' : '@import "./base.css";\n';
+  var indexContent = isSCSS ? '@use "./preset/base.scss";\n' : '@use "./preset/base.css";\n';
   Components.forEach(function(key) {
     var fileName = key + (isSCSS ? '.scss' : '.css');
-    indexContent += '@import "./' + fileName + '";\n';
+    indexContent += '@use "./' + fileName + '";\n';
     var filePath = path.resolve(basepath, theme, 'src', fileName);
     if (!fileExists(filePath)) {
       fs.writeFileSync(filePath, '', 'utf8');

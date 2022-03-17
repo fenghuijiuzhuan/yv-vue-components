@@ -3,11 +3,15 @@
 import ScrollTabs from '../packages/scroll-tabs/index.js';
 import FormFactory from '../packages/form-factory/index.js';
 import DialogLayout from '../packages/dialog-layout/index.js';
+import ALink from '../packages/a-link/index.js';
+import SpList from '../packages/sp-list/index.js';
 
 const components = [
   ScrollTabs,
   FormFactory,
-  DialogLayout
+  DialogLayout,
+  ALink,
+  SpList
 ];
 
 const install = function(Vue, opts = {}) {
@@ -30,6 +34,8 @@ export default {
   install,
   ScrollTabs,
   FormFactory,
-  DialogLayout
+  DialogLayout,
+  ALink,
+  SpList
 };
 

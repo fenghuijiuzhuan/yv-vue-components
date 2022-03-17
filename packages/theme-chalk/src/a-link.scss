@@ -1,0 +1,6 @@
+@use 'preset/share' as *;
+
+@include b(a-link) {
+  color: inherit;
+  text-decoration: none;
+}

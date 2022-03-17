@@ -1,9 +1,14 @@
-.yv-form-factory__wrapper {
-  ::v-deep.el-form-item {
-    margin-bottom: 0;
+@use 'preset/share' as *;
+
+@include b(form-factory) {
+  @include e(wrapper) {
+    .el-form-item {
+      margin-bottom: 0;
+    }
   }
-  .yv-form-factory__date-range {
-    ::v-deep.el-input {
+
+  @include e(date-range) {
+    .el-date-editor.el-input {
       width: 140px;
     }
     span {

@@ -1,5 +1,9 @@
-.yv-dialog-layout__wrapper{
-  ::v-deep.el-dialog__body{
-    padding:15px;
+@use 'preset/share' as *;
+
+@include b(dialog-layout) {
+  @include e(wrapper) {
+    .el-dialog__body{
+      padding:15px;
+    }
   }
 }

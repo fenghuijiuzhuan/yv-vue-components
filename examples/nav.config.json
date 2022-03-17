@@ -10,6 +10,14 @@
             "title": "滚动按钮组"
           },
           {
+            "path": "/a-link",
+            "title": "跳转链接"
+          },
+          {
+            "path": "/sp-list",
+            "title": "简单列表"
+          },
+          {
             "path": "/form-factory",
             "title": "表单工厂"
           },

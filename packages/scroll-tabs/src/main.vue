@@ -1,16 +1,16 @@
 <template>
   <div
-    class="yv-scroll-button-group-wrapper"
-    :class="block && 'yv-scroll-button-group-blockskin'"
+    class="yv-scroll-tabs"
+    :class="block && 'is-blockskin'"
     @selectstart.prevent
     @select.prevent
   >
-    <ul v-show="value.length" class="yv-scroll-button-group">
+    <ul v-show="value.length" class="yv-scroll-tabs__wrapper">
       <li
         v-for="(item, i) in value"
         :key="item.name + i"
-        class="yv-buttons"
-        :class="current === i && 'yv-active-button'"
+        class="yv-scroll-tabs__buttons"
+        :class="current === i && 'is-active'"
         @click="clickItem(i, item)"
       >
         {{ item.name }}
@@ -18,7 +18,7 @@
     </ul>
 
     <span
-      class="yv-sp-block"
+      class="yv-scroll-tabs__sp-block"
       :style="{
         width: `${currentStyle.offsetWidth}px`,
         transform: `translate3d(${currentStyle.offsetLeft}px, 0, 0)`
@@ -84,7 +84,8 @@ export default {
   },
   methods: {
     getBlockStyle(nVal) {
-      const buttonItems = this.$el.querySelectorAll('li.yv-buttons');
+      const buttonItems = this.$el.querySelectorAll('.yv-scroll-tabs__buttons');
+      console.log(buttonItems);
       const currentItem = buttonItems[nVal];
       this.currentStyle = {
         offsetWidth: currentItem.offsetWidth,

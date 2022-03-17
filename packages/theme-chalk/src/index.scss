@@ -1,4 +1,6 @@
-@import "./base.scss";
-@import "./scroll-tabs.scss";
-@import "./form-factory.scss";
-@import "./dialog-layout.scss";
+@use "./preset/base.scss";
+@use "./scroll-tabs.scss";
+@use "./form-factory.scss";
+@use "./dialog-layout.scss";
+@use "./a-link.scss";
+@use "./sp-list.scss";

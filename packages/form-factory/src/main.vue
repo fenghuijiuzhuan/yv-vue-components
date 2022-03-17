@@ -25,7 +25,6 @@
         <el-form-item
           label=""
           :prop="dateRangeOption[1].key"
-          style="margin-right: 0"
         >
           <el-date-picker
             placeholder="请选择日期"
